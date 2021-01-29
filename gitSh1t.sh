@@ -8,7 +8,7 @@ echo "  .,-:::::/  ::::::::::::::: .::::::.   ::   .:  :.::::::::::::
 'SSc.    'SS SSS     SS       '''    $'SS$''SS$ SS     SS     
  'Y8bo,,,o88o888     88,     88b    dP 888   '88o88     88,    
    ''YMUP'YMMMMM     MMM      'YMmMY'  MMM    YMMMM     MMM "
-echo "░░░░░░░░░░░░░░░░░░░░▒▓█[GitSh1t]█▓▒░░░░░░░░░░░░░░░░░░░░░░░░"
+echo "░░░░░░░░░░░░░░░░░░░░▒▓█[Git💩]█▓▒░░░░░░░░░░░░░░░░░░░░░░░░"
 echo " 
                 Feed me a github username 
                 & I will moove it moove it
@@ -16,18 +16,15 @@ echo "
                         \   ^__^
                          \  (oo)\_______
                             (__)\       )\/
-                                ||---23 |
+                                ||---23 | 💩
                                 ||     || "
 echo ""
-read -p 'Enter GitHub Username:  ' gituser 
+read -p 'Enter the gitHub username to git their 💩:  ' gituser 
 mkdir $gituser
-cd $gituser
+cd $gituser/
 curl -s https://api.github.com/users/$gituser/repos | grep \"clone_url\" | awk '{print $2}' | sed -e 's/"//g' -e 's/,//g' | xargs -n1 git clone
 #echo "I need gitleaks, install and configure it: https://github.com/zricethezav/gitleaks"
-mkdir sh1t
-cd sh1t
-for r in */ ; do
-    gitleaks --repo-path=. -v --pretty > $r.json && git push --verbose --pretty
+for r in `find . -path ./git -prune -o -type d -mindepth 1 -maxdepth 1` ; do
+    `gitleaks --repo-path=$r -v --pretty > $r/sh1t.json`
 done
-echo "Go check the sh1t out that I found in $gituser/sh1t/$r" 
- 
+echo "Go check out how full of 💩 all the 💩 I found in $gituser/"
