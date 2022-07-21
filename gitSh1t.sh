@@ -21,7 +21,6 @@ echo ""
 file="/Users/0xdeadbeef/Desktop/git.txt"
 n=1
 n=$((n+1))
-pwd
 mkdir "loot"
 cd loot
 while read line; do
@@ -30,10 +29,10 @@ while read line; do
     mkdir $gituser
     curl -s "https://api.github.com/users/$gituser/repos?per_page=1000" | grep \"clone_url\" | awk '{print $2}' | sed -e 's/"//g' -e 's/,//g' | xargs -n1 git clone
 done < $file
-shit=./*    
+shit="./*"    
 for r in `find $shit -path ./git -prune -o -type d -mindepth 1 -maxdepth 1` ; do
-    echo $shit
-    `gitleaks detect --source "$r" -v -l debug -r thisreportissh1t.json -f json > $r/sh1t.json`
+    echo $r
+    `gitleaks detect --source "$r" -v -l debug -r thisreportissh1t.json -f json >> $r/sh1t.json`
 done
 
 find . -name 'sh1t.json' -exec cat {} \;
